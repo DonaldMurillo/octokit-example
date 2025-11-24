@@ -1,0 +1,130 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Cat",
+  "description": "A schema representing a cat",
+  "type": "object",
+  "required": ["name", "breed", "age"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The cat's name",
+      "minLength": 1,
+      "maxLength": 50
+    },
+    "breed": {
+      "type": "string",
+      "description": "The cat's breed",
+      "examples": ["Siamese", "Persian", "Maine Coon", "British Shorthair", "Ragdoll"]
+    },
+    "age": {
+      "type": "integer",
+      "description": "Age in years",
+      "minimum": 0,
+      "maximum": 30
+    },
+    "weight": {
+      "type": "number",
+      "description": "Weight in kilograms",
+      "minimum": 0
+    },
+    "color": {
+      "type": "string",
+      "description": "Primary fur color"
+    },
+    "patterns": {
+      "type": "array",
+      "description": "Fur patterns",
+      "items": {
+        "type": "string",
+        "enum": ["Solid", "Tabby", "Calico", "Tortoiseshell", "Bicolor", "Pointed"]
+      }
+    },
+    "personality": {
+      "type": "object",
+      "properties": {
+        "playfulness": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10
+        },
+        "friendliness": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10
+        },
+        "energyLevel": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10
+        }
+      }
+    },
+    "isIndoor": {
+      "type": "boolean",
+      "description": "Whether the cat lives indoors"
+    },
+    "isSpayedNeutered": {
+      "type": "boolean",
+      "description": "Whether the cat is spayed or neutered"
+    },
+    "vaccinations": {
+      "type": "array",
+      "description": "List of vaccinations received",
+      "items": {
+        "type": "object",
+        "required": ["name", "date"],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "nextDue": {
+            "type": "string",
+            "format": "date"
+          }
+        }
+      }
+    },
+    "microchipId": {
+      "type": "string",
+      "description": "Microchip identification number"
+    },
+    "adoptionDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the cat was adopted"
+    },
+    "favoriteToys": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "specialNeeds": {
+      "type": "array",
+      "description": "Any special medical or dietary needs",
+      "items": {
+        "type": "string"
+      }
+    },
+    "owner": {
+      "type": "object",
+      "required": ["name", "phone"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        }
+      }
+    }
+  }
+}
